@@ -1,0 +1,47 @@
+[8:46 AM, 9/15/2022] Sundhari: function EncryptNumber()
+{
+var digit1;
+var digit2;
+var digit3;
+var digit4;
+var inputString;
+// Ask user to enter 4 digit to be encrypted
+inputString = prompt("Please enter a 4 digit number");
+var number = parseInt(inputString);
+digit1 = parseInt((number / 1000 + 7) % 10);
+digit2 = parseInt((number % 1000 / 100 + 7) % 10);
+digit3 = parseInt((number % 1000 % 100 / 10 + 7) % 10);
+digit4 = parseInt((number % 1000 % 100 / 10 + 7) % 10);
+var encryptedNum;
+encryptedNum = "The encrypted number is " + digit1 + digit2 + digit3 + digit4;
+document.write("<br>" + encryptedNum);
+}
+function DecryptNumber()
+{
+var inputString;
+inputString = prompt("Please enter a 4 digit number");
+var number = inputString;
+var digit1;
+var digit2;
+var digit3;
+var digit4;
+digit1 = parseInt(number / 1000);
+digit2 = parseInt(number % 1000 / 100);
+digit3 = parseInt(number % 1000 % 100 / 10);
+digit3 = parseInt(number % 1000 % 100 % 10);
+var temp = parseInt((digit1 + 3) % 10);
+digit1 = parseInt((digit3 + 3) % 10);
+digit3 = temp;
+temp = parseInt((digit2 + 3) % 10);
+digit2 = parseInt((digit4 + 3) % 10);
+digit4 = temp;
+var decryptedNumber = digit1 * 1000 + digit2 * 100 + digit3 * 10 + digit4;
+document.write("The decrypted number is" + decryptedNumber ;
+}
+</script>
+</head>
+<body>
+<input type="button" value="Encrypt number" onclick="EncryptNumber()">
+<input type="button" value="Decrypt number" onclick="DecryptNumber()">
+</body>
+</html>
